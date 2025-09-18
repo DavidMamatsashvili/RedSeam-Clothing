@@ -50,76 +50,24 @@ main{
 
 #registration-container{
     width:554px;
-    height:629px;
+    height:351px;
     display:flex;
+    
     flex-direction:column;
     justify-content:space-between;
 }
 
 #registration-text{
-    width:261px;
+    width:100%px;
     height:63px;
     font-size:42px;
     font-family:"Poppins";
     font-weight:600;
     display:flex;
-    justify-content:center;
-}
-
-#registration-form{
-    width:554px;
-    height:518px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-}
-
-.form-image-container{
-    width:100%;
-    height:100px;
-    display:flex;
     justify-content:flex-start;
 }
 
-.registration-image-upload-container{
-    width:272px;
-    height:100px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-#customer-image-circle{
-    width:100px;
-    height:100px;
-}
-
-.input-forms-inside{
-    width:157px;
-    height:21px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.uppload{
-    font-weight:400px;
-    font-size:14px;
-    cursor:pointer;
-}
-
-.remove{
-    font-weight:400px;
-    font-size:14px;
-    cursor:pointer;
-}
-
-input[type="file"]{
-    display:none;
-}
-
-/****/
-.form-data-container{
+#registration-form{
     width:554px;
     height:240px;
     display:flex;
@@ -127,59 +75,78 @@ input[type="file"]{
     justify-content:space-between;
 }
 
-.data-container-cell{
+.email-password-container{
+    width:554px;
+    height:108px;
+    display:flex;
+    justify-content:space-between;
+    flex-direction:column;
+}
+
+.login-register-btns{
+    width:554px;
+    height:86px; 
+}
+
+.email-container{
     width:554px;
     height:42px;
     border:1px solid;
     border-radius:8px;
-    border-color:grey;
+    display:flex;
+    align-items:center;
+}
+
+.password-container{
+    width:554px;
+    height:42px;
+    border:1px solid;
+    border-radius:8px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    
 }
 
-.data-detail{
-    border:none;
-    font-size:14px;
-    font-weight:400;
-    outline:none;
+#emaildata{
     margin-left:12px;
+    border:none;
+    outline:none;
 }
 
-.label-detail{
-    display:flex;
-    justify-content:start;
+#passworddata{
+    margin-left:12px;
+    border:none;
+    outline:none;
 }
 
 .eye{
+    width:20px;
+    height:20px;
     margin-right:12px;
     cursor:pointer;
 }
 
-/*register button*/
-.register-button-container{
-    width:554px;
-    height:86px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.submit-button{
+.login-btn{
     width:554px;
     height:41px;
-    border-radius:10px;
     background-color:red;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border:none;
-    font-size:14px;
-    font-weight:400;
     color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:8px;
+    font-size:14px;
+    font-family: "Poppins";
+    border:none;
     cursor:pointer;
+}
+
+.check-login-container{
+    width:554px;
+    height:41px;
+    display:flex;
+    justify-content:center;
+    align-items: end;
 }
 
 .check-login{
