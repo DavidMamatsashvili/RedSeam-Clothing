@@ -3,13 +3,13 @@
     padding:0;
     box-sizing:border-box;
     font-family:"Open Sans", sans-serif;
+    background-color: white;
 }
 
 /*header*/
 .header{
     width:100%;
     height:80px;
-    border:1px solid;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -43,7 +43,6 @@ main{
 #registration-section{
     width:972px;
     height:1000px;
-    border:1px solid red;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -52,7 +51,6 @@ main{
 #registration-container{
     width:554px;
     height:629px;
-    border:1px solid;
     display:flex;
     flex-direction:column;
     justify-content:space-between;
@@ -71,13 +69,14 @@ main{
 #registration-form{
     width:554px;
     height:518px;
-    border:1px solid red;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
 }
 
 .form-image-container{
     width:100%;
     height:100px;
-    border:1px solid;
     display:flex;
     justify-content:flex-start;
 }
@@ -85,7 +84,6 @@ main{
 .registration-image-upload-container{
     width:272px;
     height:100px;
-    border:1px solid;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -102,7 +100,6 @@ main{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    border:1px solid;
 }
 
 .uppload{
@@ -120,3 +117,85 @@ input[type="file"]{
 }
 
 /****/
+.form-data-container{
+    width:554px;
+    height:240px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.data-container-cell{
+    width:554px;
+    height:42px;
+    border:1px solid;
+    border-radius:8px;
+    border-color:grey;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    
+}
+
+.data-detail{
+    border:none;
+    font-size:14px;
+    font-weight:400;
+    outline:none;
+    margin-left:12px;
+}
+
+.label-detail{
+    display:flex;
+    justify-content:start;
+}
+
+.eye{
+    margin-right:12px;
+    cursor:pointer;
+}
+
+/*register button*/
+.register-button-container{
+    width:554px;
+    height:86px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.submit-button{
+    width:554px;
+    height:41px;
+    border-radius:10px;
+    background-color:red;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:none;
+    font-size:14px;
+    font-weight:400;
+    color:white;
+    cursor:pointer;
+}
+
+.check-login{
+    width:176px;
+    height:21px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.random-text{
+    font-size:14px;
+    color:#3E424A;
+}
+
+.login-button{
+    border:none;
+    color:red;
+    font-weight:700;
+    cursor:pointer;
+}
