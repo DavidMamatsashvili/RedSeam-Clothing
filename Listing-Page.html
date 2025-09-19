@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Listing-Page-Styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="outer-header-container">
+            <img src="images/Logo.png" alt="logo" class="logo-img">
+            <div class="user-icon-and-shopping-cart">
+                <img src="images/shopping-cart.png" alt="cart" class="cart">
+                <div class="customer-icon-and-cart">
+                    <img src="images/customer-image.png" alt="customer" class="customer-icon">
+                    <img src="images/chevron-down.png" alt="dropdown" class="dropdown">
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="filtration-container">
+            <div class="product-logo">Products</div>
+            <div class="filtration-items">
+                <div class="show-results-outer">
+                    <div class="show-results">showing 1-10 of 100 results</div>
+                </div>
+                <div class="filter-sortby-container-outer">
+                    <div class="filter-sortby-container">
+                        <div class="filter-container">
+                            <img src="images/adjustments-horizontal.png" alt="adjustments" class="adjustments">
+                            <div class="filter-container-text">Filter</div>
+                        </div>
+                        <div class="sortby-container">
+                            <div class="sortby-container-text">Sort by</div>
+                            <img src="images/chevron-down.png" alt="chevron" class="chevron">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="price-selection-container">
+                    <div class="price-selection-outer">
+                        <div class="select-price-container">Select Price</div>
+                    </div>
+                    <div class="price-range-container">
+                        <form class="min-max-price-form">
+
+                            <div class="min-max-price-container">
+                                <div class="min-price-div">
+                                    <input type="number" id="min-price-input" name="price_from" placeholder="From*">
+                                </div>
+                                <div class="max-price-div">
+                                    <input type="number" id="max-price-input" name="price_to" placeholder="To*">
+                                </div>
+                            </div>
+                            <div class="price-selection-btn-container">
+                                <button type="submit" class="price-selection-btn">Apply</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="another-filtering-options-container">
+                    <div class="filter-name-text-outer">
+                        <div class="filter-name-text">Sort By</div>
+                    </div>
+                    <form class="another-filtering-form">
+                        <input type="hidden" name="sort" id="sortValue">
+                        <div class="filter-options">
+                            <div class="new-product-first-outer other">
+                                <div class="new-product-first other2" data-value="byproduct">New products first</div>
+                            </div>
+                            <div class="price-low-to-high-outer other">
+                                <div class="price-low-to-high other2" data-value="low-to-high">Price, low to high</div>
+                            </div>
+                            <div class="price-high-to-low-outer other">
+                                <div class="price-high-to-low other2" data-value="high-to-low">Price, high to low</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <div class="filter-categories">
+            <!-- <div class="min-max-price-category-container">
+                <div class="price-tag">Price:100-200</div>
+                <img src="images/x-mark.png" alt="x" class="delete-price-tag-btn">
+            </div> -->
+        </div>
+        
+    </main>
+    <script src="Listing-Page-Filtration.js"></script>
+</body>
+</html>
