@@ -1,0 +1,32 @@
+import { GetData, Link } from './API.js';
+
+export const ProductContainer = document.querySelector(".products-display");
+export let totalPages;
+
+export async function DrawProducts(page) {
+    try{
+        const link = `https://api.redseam.redberryinternship.ge/api/products?page=${page}`;
+        const products = await GetData(link);
+        ProductContainer.innerHTML="";
+        for(let i of products.data){
+            let product = 
+            `
+            <div class="product-container">
+                <img src="${i.cover_image}" alt="product-img" class="fetched-product-img">
+                <div class="product-details-container">
+                    <div class="product-title-container">${i.name}</div>
+                    <div class="product-price-container">$ ${i.price}</div>
+                </div>
+            </div>
+            `;
+            ProductContainer.innerHTML+=product;
+        }
+
+        let x = products.links.last;
+        let y = new URL(x);
+        totalPages = parseInt(y.searchParams.get("page"));
+    }
+    catch(err){
+        console.log(err);
+    }
+}
