@@ -1,19 +1,89 @@
 import { DrawProducts } from './Products.js';
-import { DrawPaginations, CheckButtons } from './Pagination.js';
+import { DrawPaginations, CheckButtons, DrawPaginationsWithFiltration, CheckButtonsWithFiltration } from './Pagination.js';
+import { GetData, GetDataFromForm } from './API.js';
+
+let currentPage = 1;
+let currentFilter = { min: null, max: null };
 
 async function init() {
-    await DrawProducts(1);
-    await DrawPaginations(1);
-    CheckButtons();
+    let products = await GetData(currentPage);
+    await DrawProducts(products);
+    await DrawPaginations(currentPage);
 
     document.querySelector(".pagination-pages").addEventListener("click", async (e) => {
         if (!e.target.classList.contains("pagination") || e.target.classList.contains("third-wheel")) return;
         const pageNum = parseInt(e.target.innerText);
         if (!isNaN(pageNum)) {
-            await DrawProducts(pageNum);
-            await DrawPaginations(pageNum);
+            currentPage = pageNum;
+            await loadPage();
         }
     });
+
+    document.querySelector(".min-max-price-form").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        let formData = new FormData(e.target);
+        currentFilter.min = formData.get("price_from");
+        currentFilter.max = formData.get("price_to");
+        currentPage = 1;
+        await loadPage();
+    });
+
+    document.querySelector(".chevron-left").addEventListener("click", async () => {
+        if (currentPage > 1) {
+            currentPage--;
+            await loadPage();
+        }
+    });
+
+    document.querySelector(".chevron-right").addEventListener("click", async () => {
+        currentPage++;
+        await loadPage();
+    });
 }
+
+
+
+// async function loadPage() {
+//     //let products;
+//     if (currentFilter.min!=null && currentFilter.max!=null) {
+
+//         let products = await GetDataFromForm(currentFilter.min, currentFilter.max, currentPage);
+//         await DrawProducts(products);
+//         await DrawPaginationsWithFiltration(currentFilter.min, currentFilter.max, currentPage);
+//         await CheckButtonsWithFiltration(currentFilter.min, currentFilter.max, products);
+
+//         document.querySelector(".pagination-pages").addEventListener("click", async (e) => {
+//             if (!e.target.classList.contains("pagination") || e.target.classList.contains("third-wheel")) return;
+//             const pageNum = parseInt(e.target.innerText);
+//             if (!isNaN(pageNum)) {
+//                 currentPage = pageNum;
+//                 console.log(currentPage);
+//                 let newproducts = await GetDataFromForm(currentFilter.min, currentFilter.max, currentPage);
+//                 await DrawProducts(newproducts);
+//                 await DrawPaginationsWithFiltration(currentFilter.min, currentFilter.max, currentPage);
+//                 await CheckButtonsWithFiltration(currentFilter.min, currentFilter.max, currentPage);
+//             }
+//         });
+//     }
+        
+//     // } else {
+//     //     let products = await GetData(currentPage);
+//     //     await DrawProducts(products);
+//     //     await DrawPaginations(currentPage);
+//     //     await loadPage();
+//     // }
+// }
+async function loadPage() {
+    if (currentFilter.min != null && currentFilter.max != null) {
+        let products = await GetDataFromForm(currentFilter.min, currentFilter.max, currentPage);
+        await DrawProducts(products);
+        await DrawPaginationsWithFiltration(currentFilter.min, currentFilter.max, currentPage);
+    } else {
+        let products = await GetData(currentPage);
+        await DrawProducts(products);
+        await DrawPaginations(currentPage);
+    }
+}
+
 
 init();

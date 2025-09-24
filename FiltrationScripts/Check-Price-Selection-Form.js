@@ -8,9 +8,9 @@ export async function CheckPriceSelectionForm(){
         let min_price = formData.get("price_from");
         let max_price = formData.get("price_to");
 
-        for (const [key, value] of formData.entries()) {
-            console.log(key, value);
-        }
+        // for (const [key, value] of formData.entries()) {
+        //     console.log(key, value);
+        // }
 
         const PriceTagContainer = document.querySelector(".filter-categories");
         if(PriceTagContainer.children.length==0){
