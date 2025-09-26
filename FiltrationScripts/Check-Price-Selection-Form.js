@@ -22,7 +22,8 @@ export async function CheckPriceSelectionForm(){
             </div>
             `;
             PriceTagContainer.innerHTML+=newtag;
-            DeletePriceTag();
+            //DeletePriceTag();
+            //if(DeletePriceTag()){currentFilter.min=null;currentFilter.max=null}
         }
         else{
             PriceTagContainer.innerHTML="";
@@ -34,7 +35,8 @@ export async function CheckPriceSelectionForm(){
             </div>
             `;
             PriceTagContainer.innerHTML+=newtag;
-            DeletePriceTag();
+            //DeletePriceTag();
+            //if(DeletePriceTag()){currentFilter.min=null;currentFilter.max=null}
         }
     })
 }

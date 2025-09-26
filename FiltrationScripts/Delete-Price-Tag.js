@@ -3,5 +3,7 @@ export function DeletePriceTag(){
     FilterCategoryDeleteBtn.addEventListener("click",()=>{
         const Parent = document.querySelector(".filter-categories");
         Parent.innerHTML="";
+        //currentFilter.max=null;
+        //currentFilter.min=null;
     })
 }

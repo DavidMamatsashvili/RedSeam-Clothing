@@ -10,10 +10,10 @@ export function InsertPaginations(text) {
     return obj;   
 }
 
-export async function DrawPaginations(current) {
+export async function DrawPaginations(current,data) {
     try{
         //const link = `https://api.redseam.redberryinternship.ge/api/products?page=${current}`;
-        const data = await GetData(current);
+        //const data = await GetData(current);
 
         let x = data.links.last;
         let y = new URL(x);
@@ -68,9 +68,9 @@ export async function DrawPaginations(current) {
     }
 }
 
-export async function DrawPaginationsWithFiltration(min_price,max_price,current){
+export async function DrawPaginationsWithFiltration(current,data){
     try{
-        const data = await GetDataFromForm(min_price,max_price,current);
+        //const data = await GetDataFromForm(min_price,max_price,current);
 
         let x = data.links.last;
         let y = new URL(x);
