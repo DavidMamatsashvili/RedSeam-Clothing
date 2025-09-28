@@ -9,7 +9,7 @@ export async function DrawProducts(products) {
         for(let i of products.data){
             let product = 
             `
-            <div class="product-container">
+            <div class="product-container" id=${i.id}>
                 <img src="${i.cover_image}" alt="product-img" class="fetched-product-img">
                 <div class="product-details-container">
                     <div class="product-title-container">${i.name}</div>
@@ -27,5 +27,17 @@ export async function DrawProducts(products) {
     }
     catch(err){
         console.log(err);
+    }
+}
+
+
+export async function CheckProductUnit(){
+    if(document.querySelector(".products-display").children.length>0){
+        document.querySelectorAll(".product-container").forEach(element=>{
+            element.addEventListener("click",async(e)=>{
+                window.location.href="Product-Page.html"
+                sessionStorage.setItem("ProductId",JSON.stringify(e.target.parentElement.id))
+            })
+        });
     }
 }

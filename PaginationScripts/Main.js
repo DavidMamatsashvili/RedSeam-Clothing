@@ -1,6 +1,6 @@
-import { DrawProducts } from './Products.js';
+import { CheckProductUnit, DrawProducts } from './Products.js';
 import { DrawPaginations, CheckButtons, DrawPaginationsWithFiltration, CheckButtonsWithFiltration } from './Pagination.js';
-import { GetData, GetDataFromForm } from './API.js';
+import { GetData, GetDataFromForm, GetDataWithSort } from './API.js';
 import { CheckProductAmount } from './Check-Product-Amount.js';
 import { CheckDeleteBtn } from './Check-Delete-Btn.js';
 
@@ -15,6 +15,7 @@ async function init() {
     await DrawProducts(products);
     await DrawPaginations(currentPage,products);
     await CheckProductAmount(products,currentPage);
+    await CheckProductUnit();
 
     document.querySelector(".pagination-pages").addEventListener("click", async (e) => {
         if (!e.target.classList.contains("pagination") || e.target.classList.contains("third-wheel")) return;
@@ -68,6 +69,7 @@ async function loadPage(){
             await DrawProducts(products);
             await CheckProductAmount(products,currentPage);
             await DrawPaginationsWithFiltration(currentPage,products);
+            await CheckProductUnit();
         } else {
             console.log("printed")
             let products = await GetData(currentPage);
@@ -75,6 +77,7 @@ async function loadPage(){
             await DrawProducts(products);
             await CheckProductAmount(products,currentPage);
             await DrawPaginations(currentPage,products);
+            await CheckProductUnit();
         }
     }
     else{
@@ -83,103 +86,56 @@ async function loadPage(){
 }
 
 
-
-// async function loadPage() {
-//     await CheckDeleteBtn(currentFilter,loadPage);
-//     if (currentFilter.min != null && currentFilter.max != null) {
-//         let products = await GetDataFromForm(currentFilter.min, currentFilter.max, currentPage);
-//         localobject=products;
-//         await DrawProducts(products);
-//         await CheckProductAmount(products,currentPage);
-//         await DrawPaginationsWithFiltration(currentPage,products);
-//     } else {
-//         console.log("printed")
-//         let products = await GetData(currentPage);
-//         localobject=products;
-//         await DrawProducts(products);
-//         await CheckProductAmount(products,currentPage);
-//         await DrawPaginations(currentPage,products);
-//     }
-// }
-
-
 async function loadPageSorted(context){
     switch (context){
         case "New products first":
             await CheckDeleteBtn(currentFilter,loadPage);
             if (currentFilter.min != null && currentFilter.max != null) {
-                let products = await GetDataFromForm(currentFilter.min, currentFilter.max, currentPage);
-                //let products = localobject;
-                console.log(localobject);
-                let sorted = products.data.sort((a,b)=>{return b.release_year-a.release_year});
-                products["data"]=sorted;
-                console.log(products);
-                console.log(products["data"])
+                let products = await GetDataWithSort(currentFilter.min,currentFilter.max,"created_at",currentPage);
+                console.log(products)
                 await DrawProducts(products);
                 await CheckProductAmount(products,currentPage);
                 await DrawPaginationsWithFiltration(currentPage,products);
+                await CheckProductUnit();
             } else {
-                console.log("printed")
-                let products = await GetData(currentPage);
-                //let products = localobject;
-                console.log(localobject);
-                let sorted = products.data.sort((a,b)=>{return b.release_year-a.release_year});
-                products["data"]=sorted;
-                console.log(products);
-                console.log(products["data"])
+                let products = await GetDataWithSort(null,null,"created_at",currentPage);
+                console.log(products)
                 await DrawProducts(products);
                 await CheckProductAmount(products,currentPage);
                 await DrawPaginations(currentPage,products);
+                await CheckProductUnit();
             }
             break;
         case "Price, low to high":
             await CheckDeleteBtn(currentFilter,loadPage);
             if (currentFilter.min != null && currentFilter.max != null) {
-                let products = await GetDataFromForm(currentFilter.min, currentFilter.max, currentPage);
-                //let products = localobject;
-                let sorted = products.data.sort((a,b)=>{return a.price-b.price});
-                products["data"]=sorted;
-                console.log(products);
-                console.log(products["data"])
+                let products = await GetDataWithSort(currentFilter.min,currentFilter.max,"price",currentPage)
                 await DrawProducts(products);
                 await CheckProductAmount(products,currentPage);
                 await DrawPaginationsWithFiltration(currentPage,products);
+                await CheckProductUnit();
             } else {
-                console.log("printed")
-                let products = await GetData(currentPage);
-                //let products = localobject;
-                let sorted = products.data.sort((a,b)=>{return a.price-b.price});
-                products["data"]=sorted;
-                console.log(products);
-                console.log(products["data"])
+                let products = await GetDataWithSort(null,null,"price",currentPage)
                 await DrawProducts(products);
                 await CheckProductAmount(products,currentPage);
                 await DrawPaginations(currentPage,products);
+                await CheckProductUnit();
             }
             break;
         case "Price, high to low":
             await CheckDeleteBtn(currentFilter,loadPage);
             if (currentFilter.min != null && currentFilter.max != null) {
-                let products = await GetDataFromForm(currentFilter.min, currentFilter.max, currentPage);
-                //let products = localobject;
-                let sorted = products.data.sort((a,b)=>{return b.price-a.price});
-                products["data"]=sorted;
-                console.log(products);
-                console.log(products["data"])
+                let products = await GetDataWithSort(currentFilter.min,currentFilter.max,"-price",currentPage)
                 await DrawProducts(products);
                 await CheckProductAmount(products,currentPage);
                 await DrawPaginationsWithFiltration(currentPage,products);
+                await CheckProductUnit();
             } else {
-                console.log("printed")
-                let products = await GetData(currentPage);
-                //let products = localobject;
-                let sorted = products.data.sort((a,b)=>{return b.price-a.price});
-                products["data"]=sorted;
-                console.log(products);
-                console.log(products["data"])
+                let products = await GetDataWithSort(null,null,"-price",currentPage)
                 await DrawProducts(products);
                 await CheckProductAmount(products,currentPage);
                 await DrawPaginations(currentPage,products);
+                await CheckProductUnit();
             }
             break;
     }

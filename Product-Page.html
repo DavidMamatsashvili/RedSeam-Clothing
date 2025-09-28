@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Page</title>
+  <link rel="stylesheet" href="Product-Page-Styles.css">
+</head>
+<body>
+  <header>
+    <div class="outer-header-container">
+      <img src="images/Logo.png" alt="logo" class="logo-img">
+      <div class="user-icon-and-shopping-cart">
+        <img src="images/shopping-cart.png" alt="cart" class="cart">
+        <div class="customer-icon-and-cart">
+          <img src="images/customer-image.png" alt="customer" class="customer-icon">
+          <img src="images/chevron-down.png" alt="dropdown" class="dropdown">
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="routing">
+      <div class="routing-container">Listing / Product</div>
+    </section>
+
+    <section class="product-container-outer">
+      <!-- Left side: images -->
+      <div class="product-images-container-all">
+        <div class="product-images-container">
+          <!-- <img src="images/customer-image.png" alt="image" class="product-image-item">
+          <img src="images/customer-image.png" alt="image" class="product-image-item">
+          <img src="images/customer-image.png" alt="image" class="product-image-item">
+          <img src="images/customer-image.png" alt="image" class="product-image-item">
+          <img src="images/customer-image.png" alt="image" class="product-image-item"> -->
+        </div>
+        <div class="product-main-image-container">
+          <!-- <img src="images/Products.png" alt="main_product" class="main-product-img"> -->
+        </div>
+      </div>
+
+      <!-- Right side: description -->
+      <div class="product-description-container">
+        <div class="product-description-outer">
+          <div class="product-description">
+            
+            <!-- Title + Price -->
+            <div class="product-title-container">
+              <h1 class="product-title">Kids' Curved Hilfiger Graphic T-Shirt</h1>
+              <p class="product-price">$25</p>
+            </div>
+
+            <!-- Form -->
+            <form action="" class="product-color-size-quantity-container">
+              <div class="color-size-quantity-container">
+
+                <!-- Colors -->
+                <div class="product-color-container">
+                  <p class="product-color-text">Color: Baby Pink</p>
+                  <div class="colors-selection">
+                    <!-- <label class="color-circle pink">
+                        <input type="radio" name="color" value="pink" checked>
+                        <span class="circle-bg" style="background:red;"></span>
+                    </label>
+                    <label class="color-circle purple">
+                        <input type="radio" name="color" value="purple">
+                        <span class="circle-bg" style="background:red;"></span>
+                    </label>
+                    <label class="color-circle beige">
+                        <input type="radio" name="color" value="beige">
+                        <span class="circle-bg" style="background:red;"></span>
+                    </label> -->
+                  </div>
+                </div>
+
+                <div class="product-size-container">
+                  <p class="product-size-text">Size: L</p>
+
+                  <!-- <label class="size-btn">
+                    <input type="radio" name="size" value="XS"> XS
+                  </label>
+
+                  <label class="size-btn">
+                    <input type="radio" name="size" value="S"> S
+                  </label>
+
+                  <label class="size-btn">
+                    <input type="radio" name="size" value="M"> M
+                  </label>
+
+                  <label class="size-btn">
+                    <input type="radio" name="size" value="L" checked> L
+                  </label>
+
+                  <label class="size-btn">
+                    <input type="radio" name="size" value="XL"> XL
+                  </label> -->
+
+                </div>
+
+                <!-- Quantity -->
+                <div class="product-quantity-container">
+                  <p class="product-quantity-text">Quantity</p>
+                  <div class="quantity-input">1</div>
+                </div>
+              </div>
+
+              <!-- Add to Cart -->
+              <button type="submit" class="submit-color-size-quantity-btn">🛒 Add To Cart</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Details -->
+        <div class="product-details">
+          <div class="detailsandlogo">
+            <h3>Details</h3>
+            <img src="images/Logo.png" alt="brand-img" class="brand_img">
+          </div>
+          <p class="brand"><strong>Brand:</strong> Tommy Hilfiger</p>
+          <p class="product-description-cont">
+            This product contains regenerative cotton, which is grown using farming methods
+            that seek to improve soil health, watersheds and biodiversity.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="/ProductPageScripts/Main.js"></script>
+</body>
+</html>
