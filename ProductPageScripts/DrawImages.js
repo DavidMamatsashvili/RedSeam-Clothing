@@ -8,7 +8,7 @@ export async function DrawImages(product){
         document.querySelector(".product-images-container").appendChild(img);
     })
 
-    let mainimg = `<img src="${product.cover_image}" alt="main_product" class="main-product-img">`
+    let mainimg = `<img src=${product.cover_image} alt="main_product" class="main-product-img">`
     document.querySelector(".product-main-image-container").innerHTML+=mainimg;
 
     document.querySelector(".brand_img").src=product.brand.image;

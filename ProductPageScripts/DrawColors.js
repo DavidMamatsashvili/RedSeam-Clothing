@@ -28,7 +28,7 @@ export async function DrawColors(products){
         if(index==0){
             let obj = 
             `
-            <label class="color-circle">
+            <label class="color-circle circle-bg-after">
                 <input type="radio" name="color" checked="true">
                 <span class="circle-bg" style="background:${colorMap[element]};"></span>
             </label>
