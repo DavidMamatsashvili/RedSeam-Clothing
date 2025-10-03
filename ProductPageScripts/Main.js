@@ -7,6 +7,7 @@ import { ProductDescription } from "./ProductDrescription.js";
 import { CheckLogo } from "./CheckLogo.js";
 import { CheckImages } from "./CheckImages.js";
 import { CheckCircles } from "./CheckCircles.js";
+import { CheckShoppingCart } from "./ShoppingCart.js";
 
 async function init(){
     let id = JSON.parse(sessionStorage.getItem("ProductId"));
@@ -21,6 +22,7 @@ async function init(){
     await CheckLogo();
     await CheckCircles(data);
     await CheckImages();
+    await CheckShoppingCart();
 }
 
 init()

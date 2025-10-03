@@ -25,7 +25,6 @@
     </section>
 
     <section class="product-container-outer">
-      <!-- Left side: images -->
       <div class="product-images-container-all">
         <div class="product-images-container">
           <!-- <img src="images/customer-image.png" alt="image" class="product-image-item">
@@ -38,23 +37,18 @@
           <!-- <img src="images/Products.png" alt="main_product" class="main-product-img"> -->
         </div>
       </div>
-
-      <!-- Right side: description -->
       <div class="product-description-container">
         <div class="product-description-outer">
           <div class="product-description">
             
-            <!-- Title + Price -->
             <div class="product-title-container">
               <h1 class="product-title">Kids' Curved Hilfiger Graphic T-Shirt</h1>
               <p class="product-price">$25</p>
             </div>
 
-            <!-- Form -->
             <form action="" class="product-color-size-quantity-container">
               <div class="color-size-quantity-container">
 
-                <!-- Colors -->
                 <div class="product-color-container">
                   <p class="product-color-text">Color: Baby Pink</p>
                   <div class="colors-selection">
@@ -98,20 +92,17 @@
 
                 </div>
 
-                <!-- Quantity -->
                 <div class="product-quantity-container">
                   <p class="product-quantity-text">Quantity</p>
                   <div class="quantity-input">1</div>
                 </div>
               </div>
 
-              <!-- Add to Cart -->
               <button type="submit" class="submit-color-size-quantity-btn">🛒 Add To Cart</button>
             </form>
           </div>
         </div>
 
-        <!-- Details -->
         <div class="product-details">
           <div class="detailsandlogo">
             <h3>Details</h3>
@@ -126,6 +117,65 @@
       </div>
     </section>
   </main>
+  
+  <!-- Overlay -->
+  <div id="cart-overlay" class="cart-overlay"></div>
+
+  <form id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h2>Shopping cart (2)</h2>
+      <button type="button" id="close-cart" class="close-cart">&times;</button>
+    </div>
+
+    <div class="cart-items">
+      <div class="cart-item">
+        <img src="images/product1.png" alt="T-shirt" class="cart-item-img">
+        <div class="cart-item-info">
+          <p class="cart-item-title">Kids' Curved Hilfiger Graphic T-Shirt</p>
+          <p class="cart-item-color">Baby pink</p>
+          <p class="cart-item-size">L</p>
+          <div class="cart-item-qty">
+            <button type="button" class="qty-btn decrease">−</button>
+            <input type="number" name="quantity[1]" value="1" min="1">
+            <button type="button" class="qty-btn increase">+</button>
+          </div>
+        </div>
+        <div class="cart-item-price">$25</div>
+        <button type="button" class="remove-btn">Remove</button>
+      </div>
+
+      <div class="cart-item">
+        <img src="images/product2.png" alt="T-shirt" class="cart-item-img">
+        <div class="cart-item-info">
+          <p class="cart-item-title">Kids' Curved Hilfiger Graphic T-Shirt</p>
+          <p class="cart-item-color">Baby pink</p>
+          <p class="cart-item-size">L</p>
+          <div class="cart-item-qty">
+            <button type="button" class="qty-btn decrease">−</button>
+            <input type="number" name="quantity[2]" value="1" min="1">
+            <button type="button" class="qty-btn increase">+</button>
+          </div>
+        </div>
+        <div class="cart-item-price">$25</div>
+        <button type="button" class="remove-btn">Remove</button>
+      </div>
+    </div>
+
+    <div class="cart-summary">
+      <div class="cart-summary-row">
+        <span>Items subtotal</span><span id="subtotal">$50</span>
+      </div>
+      <div class="cart-summary-row">
+        <span>Delivery</span><span id="delivery">$5</span>
+      </div>
+      <div class="cart-summary-row total">
+        <span>Total</span><span id="total">$55</span>
+      </div>
+    </div>
+
+    <button type="submit" class="checkout-btn">Go to checkout</button>
+  </form>
+
   <script type="module" src="./ProductPageScripts/Main.js"></script>
 </body>
 </html>

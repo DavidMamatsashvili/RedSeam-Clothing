@@ -3,6 +3,7 @@ import { DrawPaginations, CheckButtons, DrawPaginationsWithFiltration, CheckButt
 import { GetData, GetDataFromForm, GetDataWithSort } from './API.js';
 import { CheckProductAmount } from './Check-Product-Amount.js';
 import { CheckDeleteBtn } from './Check-Delete-Btn.js';
+import { CheckShoppingCart } from '../ProductPageScripts/ShoppingCart.js';
 
 let currentFilter = { min: null, max: null };
 let currentPage = 1;
@@ -16,6 +17,7 @@ async function init() {
     await DrawPaginations(currentPage,products);
     await CheckProductAmount(products,currentPage);
     await CheckProductUnit();
+    await CheckShoppingCart();
 
     document.querySelector(".pagination-pages").addEventListener("click", async (e) => {
         if (!e.target.classList.contains("pagination") || e.target.classList.contains("third-wheel")) return;
@@ -70,6 +72,7 @@ async function loadPage(){
             await CheckProductAmount(products,currentPage);
             await DrawPaginationsWithFiltration(currentPage,products);
             await CheckProductUnit();
+            await CheckShoppingCart();
         } else {
             console.log("printed")
             let products = await GetData(currentPage);
@@ -78,6 +81,7 @@ async function loadPage(){
             await CheckProductAmount(products,currentPage);
             await DrawPaginations(currentPage,products);
             await CheckProductUnit();
+            await CheckShoppingCart();
         }
     }
     else{
@@ -97,6 +101,7 @@ async function loadPageSorted(context){
                 await CheckProductAmount(products,currentPage);
                 await DrawPaginationsWithFiltration(currentPage,products);
                 await CheckProductUnit();
+                await CheckShoppingCart();
             } else {
                 let products = await GetDataWithSort(null,null,"created_at",currentPage);
                 console.log(products)
@@ -104,6 +109,7 @@ async function loadPageSorted(context){
                 await CheckProductAmount(products,currentPage);
                 await DrawPaginations(currentPage,products);
                 await CheckProductUnit();
+                await CheckShoppingCart();
             }
             break;
         case "Price, low to high":
@@ -114,12 +120,14 @@ async function loadPageSorted(context){
                 await CheckProductAmount(products,currentPage);
                 await DrawPaginationsWithFiltration(currentPage,products);
                 await CheckProductUnit();
+                await CheckShoppingCart();
             } else {
                 let products = await GetDataWithSort(null,null,"price",currentPage)
                 await DrawProducts(products);
                 await CheckProductAmount(products,currentPage);
                 await DrawPaginations(currentPage,products);
                 await CheckProductUnit();
+                await CheckShoppingCart();
             }
             break;
         case "Price, high to low":
@@ -130,12 +138,14 @@ async function loadPageSorted(context){
                 await CheckProductAmount(products,currentPage);
                 await DrawPaginationsWithFiltration(currentPage,products);
                 await CheckProductUnit();
+                await CheckShoppingCart();
             } else {
                 let products = await GetDataWithSort(null,null,"-price",currentPage)
                 await DrawProducts(products);
                 await CheckProductAmount(products,currentPage);
                 await DrawPaginations(currentPage,products);
                 await CheckProductUnit();
+                await CheckShoppingCart();
             }
             break;
     }
